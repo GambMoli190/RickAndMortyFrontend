@@ -22,7 +22,7 @@ export const GET_CHARACTER_BY_ID = gql`
 `;
 
 export const GET_CHARACTERS_WITH_FILTERS = gql`
-  query GetCharactersWithFilters($filters: CharacterFiltersInput) {
+  query GetCharactersWithFilters($filters: CharacterFilters) {
     characters(filters: $filters) {
       id
       name

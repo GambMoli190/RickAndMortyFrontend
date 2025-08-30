@@ -13,11 +13,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { selectedCharacterId } = useSelection();
   const { characters } = useSidebarCharacters();
   const location = useLocation();
-
-  // Encontrar el personaje seleccionado
   const selectedCharacter = characters.find((char: any) => char.id === selectedCharacterId) || null;
-
-  // Determinar si estamos en vista de detalle en mobile
   const isDetailView = location.pathname.includes('/characters-detail/');
 
   return (

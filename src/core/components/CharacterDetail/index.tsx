@@ -4,7 +4,7 @@ import { Heart, ArrowLeft } from 'lucide-react';
 import { useFavorites } from '../../context/FavoritesContext';
 
 interface Character {
-  id: string;
+  id: string | number;
   name: string;
   species: string;
   status: string;
@@ -77,13 +77,13 @@ export const CharacterDetail: React.FC<CharacterDetailProps> = ({
 
           <button
             aria-label={`Toggle favorite for ${character.name}`}
-            onClick={() => toggleFavorite(character.id)}
+            onClick={() => toggleFavorite(character.id.toString())}
             className="absolute bottom-2 right-2 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-150 border border-gray-200"
           >
             <Heart
               size={18}
               className={
-                isFavorite(character.id)
+                isFavorite(character.id.toString())
                   ? "fill-green-500 text-green-500"
                   : "text-gray-400 hover:text-gray-600"
               }
