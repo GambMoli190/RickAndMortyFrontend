@@ -1,6 +1,8 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
 export const client = new ApolloClient({
-  uri: "https://rickandmortybackend-production.up.railway.app/graphql", // tu endpoint
+  link: new HttpLink({
+    uri: "https://rickandmortybackend-production.up.railway.app/graphql",
+  }),
   cache: new InMemoryCache(),
 });
